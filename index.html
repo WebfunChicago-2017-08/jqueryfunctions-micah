@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <script>
+        $(document).ready(function () {
+
+            var isItRed = false;
+            $("#redbutton").click(function () {
+                if (isItRed) {
+                    $('#redparagraph').css('color', 'black');
+                    isItRed = false;
+                }
+                else {
+                    $('#redparagraph').css('color', 'red');
+                    isItRed = true;
+                }
+            })
+
+            $('#hidebutton').click(function () {
+                $('#hideparagraph').hide(2000);
+
+            })
+
+            $('#showbutton').click(function () {
+                $('#hiddenparagraph').show(1000);
+            })
+
+            $('#togglebutton').click(function () {
+                $('#toggleparagraph').toggle(400);
+            })
+
+            $('#slideDownbutton').click(function () {
+                $('#slideDownparagraph').slideDown(2000);
+            })
+
+            $('#slideUPbutton').click(function () {
+                $('#slideUPparagraph').slideUp(1400);
+            })
+
+            $('#slideTogglebutton').click(function () {
+                $('#slideToggleparagraph').slideToggle('fast', );
+            })
+
+            $('#fadeInbutton').click(function () {
+                $('#fadeInparagraph').fadeIn(3000, 'linear')
+            })
+
+            $('#fadeOutbutton').click(function () {
+                $('#fadeOutparagraph').fadeOut(3000, 'linear')
+            })
+
+            $('#addClassbutton').click(function () {
+                $('#addClassparagraph').addClass('classy')
+            })
+
+            $('#beforebutton').click(function () {
+                $('#beforeparagraph').before('<p>Something</p>')
+            })
+
+            $('#afterbutton').click(function () {
+                $('#afterparagraph').after('<p>Something</p>')
+            })
+
+            $('#appendbutton').click(function () {
+                $('#appendparagraph').append('<p>Something</p>')
+            })
+
+            $('#HTMLbutton').click(function () {
+                $('#HTMLparagraph').html('<b>NEW HTML CONTENT<br><span style="color: red; font-size:26px">BAM!</span></b>');
+            })
+
+            $('#attrbutton').click(function () {
+                var altString = $('#attrparagraph').attr('alt');
+                $('#attrparagraph').after(altString + "<br>");
+            })
+
+            $('#valmenu').change(function () {
+                var valResult = $('#valmenu').val();
+                $('#valresult').html('The value is: ' + valResult);
+            })
+
+            $('#textbutton').click(function () {
+                var textMessage = $('#textparagraph').text();
+                alert(textMessage);
+            })
+
+            $('#databutton').click(function () {
+            var dataGrab = $('#dataparagraph').data("micahsdata");
+            alert(dataGrab);
+            })
+        })
+    </script>
+
+    <style>
+        body {
+            font-family: 'Helvetica', Arial, sans-serif;
+            width: 85%;
+            margin: 0px auto;
+            background-color: #2b485d;
+            padding: 30px 0px;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: bold;
+        }
+
+        .functionbox {
+            display: inline-block;
+            width: 210px;
+            height: 270px;
+            padding: 20px;
+            margin: 5px auto;
+            text-align: center;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, .8);
+            box-shadow: 0px 5px 8px #090d10;
+            vertical-align: top;
+        }
+        /* div:nth-child(even) {
+            background-color: rgba(255, 255, 255, .6);
+        } */
+
+        .classy {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Times New Roman';
+            font-style: italic;
+            font-size: 24px;
+            padding: 0px 25px;
+        }
+    </style>
+
+    <title>Micah's jQuery Cookbook</title>
+</head>
+
+<body>
+
+    <div class="functionbox">
+        <h1>.click</h1>
+        <p id="redparagraph">Click the button to add class 'red' to this paragraph</p>
+        <button type="button" id="redbutton">Redify or DeRedify</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.hide</h1>
+        <p id="hideparagraph">Click the button to hide this paragraph.</p>
+        <button type="button" id="hidebutton">Hide</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.show</h1>
+        <p id="showparagraph">Click the button to show a paragraph.</p>
+        <p id="hiddenparagraph" style="display:none;">You found me!</p>
+        <button type="button" id="showbutton">Show</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.toggle</h1>
+        <p id="toggleparagraph">Click the button to toggle a paragraph.</p>
+        <button type="button" id="togglebutton">Toggle</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.slideDown</h1>
+        <p>Click the button to slide a hidden paragraph down.</p>
+        <p id="slideDownparagraph" style="display:none;">Smooooooth.</p>
+        <button type="button" id="slideDownbutton">SlideDown</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.slideUp</h1>
+        <p>Click the button to slide up and a hide a paragraph.</p>
+        <p id="slideUPparagraph">I shall be avenged!</p>
+        <button type="button" id="slideUPbutton">SlideUp</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.slideToggle</h1>
+        <p>Click the button to toggle a paragraph up and down.</p>
+        <p id="slideToggleparagraph" style='display:none;'>Peekaboo!</p>
+        <button type="button" id="slideTogglebutton">SlideToggle</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.fadeIn</h1>
+        <p>Click the button to fade a paragraph in.</p>
+        <p id="fadeInparagraph" style='display:none;'>Foggy in here...</p>
+        <button type="button" id="fadeInbutton">FadeIn</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.fadeOut</h1>
+        <p>Click the button to fade a paragraph out.</p>
+        <p id="fadeOutparagraph">Scottie, beam us up.</p>
+        <button type="button" id="fadeOutbutton">FadeOut</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.addClass</h1>
+        <p>Click the button to add a class to this paragraph.</p>
+        <p id="addClassparagraph">Stay classy, San Diego.</p>
+        <button type="button" id="addClassbutton">AddClass</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.before</h1>
+        <p id="beforeparagraph">Click the button to add something before this paragraph.</p>
+        <button type="button" id="beforebutton">Before</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.after</h1>
+        <p id="afterparagraph">Click the button to add something after this paragraph.</p>
+        <button type="button" id="afterbutton">After</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.append</h1>
+        <p id="appendparagraph">Click the button to append something after this paragraph.</p>
+        <button type="button" id="appendbutton">After</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.html</h1>
+        <p id="HTMLparagraph">Click the button to change the html contents of this paragraph.</p>
+        <button type="button" id="HTMLbutton">HTML</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.attr</h1>
+        <p id="attrparagraph" alt="This is the alt value">Click the button to get the value of the alt attribute of this paragraph.</p>
+        <button type="button" id="attrbutton">HTML</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.val</h1>
+        <p id="valparagraph">Click the dropdown and see its value displayed.</p>
+        <p id="valresult"></p>
+        <select id="valmenu">
+                    <option></option>
+                    <option>Single</option>
+                    <option>Single2</option>
+                  </select>
+    </div>
+
+    <div class="functionbox">
+        <h1>.text</h1>
+        <p id="textparagraph">Click the button to get an alert with the text contained in this paragraph.</p>
+        <button type="button" id="textbutton">Text</button>
+    </div>
+
+    <div class="functionbox">
+        <h1>.data</h1>
+        <p id="dataparagraph" data-micahsdata="Data, reporting for duty!">Click the button to get an alert with the HTML5 data-attribute value attached to this paragraph.</p>
+        <button type="button" id="databutton">Data</button>
+    </div>
+
+</body>
+
+</html>
